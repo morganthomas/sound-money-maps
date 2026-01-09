@@ -34,36 +34,15 @@ import type {Marker} from '@googlemaps/markerclusterer';
 import {Circle} from './components/circle'
 
 type Poi ={ key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
-const locations: Poi[] = [
-  {
-    key: 'alpineGold',
-    name: 'Alpine Gold Exchange',
-    address1: '1800 Elm St',
-    address2: 'Manchester, NH 03104',
-    description: 'Buy, sell, pawn, and exchange precious metals',
-    currencies: 'cash, gold, silver, Goldbacks',
-    phone: '(603) 836-8814',
-    showInfo: false,
-    location: { lat: 43.0047529, lng: -71.4689036 }
-  },
-  {
-    key: 'localSilverMint',
-    name: 'Local Silver Mint',
-    address1: '33 N Stark Hwy',
-    address2: 'Weare, NH 03281',
-    description: 'Buy, sell, and trade precious metals',
-    currencies: 'cash, gold, silver, Goldbacks',
-    phone: '(603) 529-3999',
-    showInfo: false,
-    location: { lat: 43.096796, lng: -71.7343779 }
-  },
-];
 
 const hideAllInfo = () => {
   for (let i = 0; i < locations.length; i++) {
     locations[i].showInfo = false;
   }
 };
+
+let locations: Poi[] = (await import('./database.json')).default;
+hideAllInfo();
 
 const App = () => (
   <APIProvider apiKey={'AIzaSyCZiZTseixjlpxMb3BJgcKzDwywqe3cXxQ'} onLoad={() => console.log('Maps API has loaded.')}>
