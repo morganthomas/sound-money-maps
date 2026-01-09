@@ -22,8 +22,10 @@ import {
   Map,
   useMap,
   AdvancedMarker,
+  InfoWindow,
   MapCameraChangedEvent,
-  Pin
+  Pin,
+  useAdvancedMarkerRef
 } from '@vis.gl/react-google-maps';
 
 import {MarkerClusterer} from '@googlemaps/markerclusterer';
@@ -103,17 +105,24 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
           fillColor={'#3b82f6'}
           fillOpacity={0.3}
         />
-      {props.pois.map( (poi: Poi) => (
-        <AdvancedMarker
-          key={poi.key}
-          position={poi.location}
-          ref={marker => setMarkerRef(marker, poi.key)}
-          clickable={true}
-          onClick={handleClick}
-          >
-            <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
-        </AdvancedMarker>
-      ))}
+      {props.pois.map( (poi: Poi) => {
+        const [markerRef, marker] = useAdvancedMarkerRef();
+        return (
+          <div key={poi.key}>
+            <AdvancedMarker
+              ref={markerRef}
+              position={poi.location}
+              clickable={true}
+              onClick={handleClick}
+              >
+                <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
+            </AdvancedMarker>
+            <InfoWindow anchor={marker}>
+                TODO: Info window contents
+            </InfoWindow>
+          </div>
+        );
+      })}
     </>
   );
 };
