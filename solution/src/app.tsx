@@ -33,10 +33,16 @@ import type {Marker} from '@googlemaps/markerclusterer';
 
 import {Circle} from './components/circle'
 
-type Poi ={ key: string, showInfo: boolean, location: google.maps.LatLngLiteral }
+type Poi ={ key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 const locations: Poi[] = [
-  { key: 'alpineGold', showInfo: false, location: { lat: 43.0047529, lng: -71.4689036 }},
+  { key: 'alpineGold', name: 'Alpine Gold Exchange', address1: '1800 Elm St', address2: 'Manchester, NH 03104', description: 'Buy, sell, pawn, and exchange precious metals', currencies: 'gold, silver, Goldbacks', phone: '(603) 836-8814', showInfo: false, location: { lat: 43.0047529, lng: -71.4689036 }},
 ];
+
+const hideAllInfo = () => {
+  for (let i = 0; i < locations.length; i++) {
+    locations[i].showInfo = false;
+  }
+};
 
 const App = () => (
   <APIProvider apiKey={'AIzaSyCZiZTseixjlpxMb3BJgcKzDwywqe3cXxQ'} onLoad={() => console.log('Maps API has loaded.')}>
@@ -120,7 +126,12 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
                 <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
             </AdvancedMarker>
             {poi.showInfo && <InfoWindow anchor={marker} headerDisabled={true}>
-                TODO: Info window contents
+                <p><strong>{poi.name}</strong></p>
+                <p>{poi.description}</p>
+                <p>Accepts: {poi.currencies}</p>
+                <p>{poi.address1}</p>
+                <p>{poi.address2}</p>
+                <p>{poi.phone}</p>
             </InfoWindow>}
           </div>
         );
