@@ -18,5 +18,15 @@
     "currencies": "cash, gold, silver, Goldbacks",
     "phone": "(603) 529-3999",
     "location": { "lat": 43.096796, "lng": -71.7343779 }
+  },
+  {
+    "key": "atlasRemodeling",
+    "name": "Atlas Remodeling NH",
+    "address1": "136 Mammoth Rd Apt 22",
+    "address2": "Hooksett, NH 03106",
+    "description": "Remodeling service specializing in deep energy retrofits",
+    "currencies": "cash, gold, silver, Goldbacks, crypto",
+    "phone": "(603) 688-6096",
+    "location": { "lat": 43.0355834, "lng": -71.4364752 }
   }
 ]
