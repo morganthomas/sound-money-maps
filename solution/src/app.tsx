@@ -35,7 +35,17 @@ import {Circle} from './components/circle'
 
 type Poi ={ key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 const locations: Poi[] = [
-  { key: 'alpineGold', name: 'Alpine Gold Exchange', address1: '1800 Elm St', address2: 'Manchester, NH 03104', description: 'Buy, sell, pawn, and exchange precious metals', currencies: 'gold, silver, Goldbacks', phone: '(603) 836-8814', showInfo: false, location: { lat: 43.0047529, lng: -71.4689036 }},
+  {
+    key: 'alpineGold',
+    name: 'Alpine Gold Exchange',
+    address1: '1800 Elm St',
+    address2: 'Manchester, NH 03104',
+    description: 'Buy, sell, pawn, and exchange precious metals',
+    currencies: 'gold, silver, Goldbacks',
+    phone: '(603) 836-8814',
+    showInfo: false,
+    location: { lat: 43.0047529, lng: -71.4689036 }
+  },
 ];
 
 const hideAllInfo = () => {
