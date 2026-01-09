@@ -33,25 +33,15 @@ import type {Marker} from '@googlemaps/markerclusterer';
 
 import {Circle} from './components/circle'
 
-type Poi ={ key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
-
-const hideAllInfo = () => {
-  for (let i = 0; i < locations.length; i++) {
-    locations[i].showInfo = false;
-  }
-};
+type Poi = { key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 
 let locations: Poi[] = (await import('./database.json')).default;
-hideAllInfo();
 
 const App = () => (
   <APIProvider apiKey={'AIzaSyCZiZTseixjlpxMb3BJgcKzDwywqe3cXxQ'} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
       defaultZoom={8.5}
       defaultCenter={{ lat: 44.0, lng: -71.9 }}
-      onCameraChanged={ (ev: MapCameraChangedEvent) =>
-        console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
-      }
       mapId='da37f3254c6a6d1c'
       >
     <PoiMarkers pois={locations} />
@@ -60,22 +50,22 @@ const App = () => (
 );
 
 const PoiMarkers = (props: { pois: Poi[] }) => {
+  const [visibleInfoKey, setVisibleInfoKey] = useState(null);
   const map = useMap();
   const [markers, setMarkers] = useState<{[key: string]: Marker}>({});
   const clusterer = useRef<MarkerClusterer | null>(null);
-  const [circleCenter, setCircleCenter] = useState(null)
+  const [circleCenter, setCircleCenter] = useState(null);
   const handleClick = poi => (useCallback((ev: google.maps.MapMouseEvent) => {
     if(!map) return;
     if(!ev.latLng) return;
     console.log('marker clicked: ', ev.latLng.toString());
     map.panTo(ev.latLng);
     setCircleCenter(ev.latLng);
-    hideAllInfo();
-    poi.showInfo = true;
+    setVisibleInfoKey(poi.key);
   }));
-  const handleClose = poi => {
-    poi.showInfo = false;
-  };
+  const hideInfoWindow = useCallback(() => {
+    setVisibleInfoKey(null);
+  });
   // Initialize MarkerClusterer, if the map has changed
   useEffect(() => {
     if (!map) return;
@@ -118,7 +108,6 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
         />
       {props.pois.map( (poi: Poi) => {
         const [markerRef, marker] = useAdvancedMarkerRef();
-        console.log(poi);
         return (
           <div key={poi.key}>
             <AdvancedMarker
@@ -129,7 +118,8 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
               >
                 <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
             </AdvancedMarker>
-            {poi.showInfo && <InfoWindow anchor={marker} onClose={() => handleClose(poi)}>
+            {poi.key == visibleInfoKey && <InfoWindow anchor={marker} headerDisabled={true}>
+                <p style={{ "float": "right", "margin": 0 }} onClick={hideInfoWindow}>x</p>
                 <p><strong>{poi.name}</strong></p>
                 <p>{poi.description}</p>
                 <p>Accepts: {poi.currencies}</p>
