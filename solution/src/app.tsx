@@ -41,10 +41,21 @@ const locations: Poi[] = [
     address1: '1800 Elm St',
     address2: 'Manchester, NH 03104',
     description: 'Buy, sell, pawn, and exchange precious metals',
-    currencies: 'gold, silver, Goldbacks',
+    currencies: 'cash, gold, silver, Goldbacks',
     phone: '(603) 836-8814',
     showInfo: false,
     location: { lat: 43.0047529, lng: -71.4689036 }
+  },
+  {
+    key: 'localSilverMint',
+    name: 'Local Silver Mint',
+    address1: '33 N Stark Hwy',
+    address2: 'Weare, NH 03281',
+    description: 'Buy, sell, and trade precious metals',
+    currencies: 'cash, gold, silver, Goldbacks',
+    phone: '(603) 529-3999',
+    showInfo: false,
+    location: { lat: 43.096796, lng: -71.7343779 }
   },
 ];
 
@@ -80,6 +91,7 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
     console.log('marker clicked: ', ev.latLng.toString());
     map.panTo(ev.latLng);
     setCircleCenter(ev.latLng);
+    hideAllInfo();
     poi.showInfo = true;
   }));
   const handleClose = poi => {
