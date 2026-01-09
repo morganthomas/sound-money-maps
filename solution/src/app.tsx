@@ -33,9 +33,9 @@ import type {Marker} from '@googlemaps/markerclusterer';
 
 import {Circle} from './components/circle'
 
-type Poi ={ key: string, location: google.maps.LatLngLiteral }
+type Poi ={ key: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 const locations: Poi[] = [
-  { key: 'alpineGold', location: { lat: 43.0047529, lng: -71.4689036 }},
+  { key: 'alpineGold', showInfo: false, location: { lat: 43.0047529, lng: -71.4689036 }},
 ];
 
 const App = () => (
@@ -58,13 +58,14 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
   const [markers, setMarkers] = useState<{[key: string]: Marker}>({});
   const clusterer = useRef<MarkerClusterer | null>(null);
   const [circleCenter, setCircleCenter] = useState(null)
-  const handleClick = useCallback((ev: google.maps.MapMouseEvent) => {
+  const handleClick = poi => (useCallback((ev: google.maps.MapMouseEvent) => {
     if(!map) return;
     if(!ev.latLng) return;
     console.log('marker clicked: ', ev.latLng.toString());
     map.panTo(ev.latLng);
     setCircleCenter(ev.latLng);
-  });
+    poi.showInfo = true;
+  }));
   // Initialize MarkerClusterer, if the map has changed
   useEffect(() => {
     if (!map) return;
@@ -107,19 +108,20 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
         />
       {props.pois.map( (poi: Poi) => {
         const [markerRef, marker] = useAdvancedMarkerRef();
+        console.log(poi);
         return (
           <div key={poi.key}>
             <AdvancedMarker
               ref={markerRef}
               position={poi.location}
               clickable={true}
-              onClick={handleClick}
+              onClick={handleClick(poi)}
               >
                 <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
             </AdvancedMarker>
-            <InfoWindow anchor={marker}>
+            {poi.showInfo && <InfoWindow anchor={marker} headerDisabled={true}>
                 TODO: Info window contents
-            </InfoWindow>
+            </InfoWindow>}
           </div>
         );
       })}
