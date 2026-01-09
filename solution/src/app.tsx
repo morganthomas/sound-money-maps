@@ -72,6 +72,9 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
     setCircleCenter(ev.latLng);
     poi.showInfo = true;
   }));
+  const handleClose = poi => {
+    poi.showInfo = false;
+  };
   // Initialize MarkerClusterer, if the map has changed
   useEffect(() => {
     if (!map) return;
@@ -125,7 +128,7 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
               >
                 <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
             </AdvancedMarker>
-            {poi.showInfo && <InfoWindow anchor={marker} headerDisabled={true}>
+            {poi.showInfo && <InfoWindow anchor={marker} onClose={() => handleClose(poi)}>
                 <p><strong>{poi.name}</strong></p>
                 <p>{poi.description}</p>
                 <p>Accepts: {poi.currencies}</p>
