@@ -40,8 +40,13 @@ let db = (await import('./database.json')).default;
 let locations: Poi[] = db.locations;
 let currencies: Currency[] = db.currencies;
 
-const App = () => (
-  <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
+const App = () => {
+  let currencySelections = {};
+  currencies.forEach(currency => {
+      currencySelections[currency.key] = useState(true);
+  });
+
+  return <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
       defaultZoom={8.5}
       defaultCenter={{ lat: 44.0, lng: -71.9 }}
@@ -54,21 +59,24 @@ const App = () => (
         "top": "100px",
         "left": "50px",
         "background": "white",
-        "padding-right": "20px",
-        "padding-left": "20px"
+        "paddingRight": "20px",
+        "paddingLeft": "20px"
       }}>
       <h3>Select Currencies</h3>
-      <ul style={{ "padding-left": "0px" }}>
+      <ul style={{ "paddingLeft": "0px" }}>
         {currencies.map(currency =>
-          <li key={currency.key} style={{ "list-style": "none" }}>
-            <input type="checkbox" />
+          <li key={currency.key} style={{ "listStyle": "none" }}>
+            <input type="checkbox"
+              checked={currencySelections[currency.key][0]}
+              onChange={e => { currencySelections[currency.key][1](e.target.checked); }}
+            />
             {currency.name}
           </li>
         )}
       </ul>
     </div>
-  </APIProvider>
-);
+  </APIProvider>;
+};
 
 const PoiMarkers = (props: { pois: Poi[] }) => {
   const [visibleInfoKey, setVisibleInfoKey] = useState(null);
