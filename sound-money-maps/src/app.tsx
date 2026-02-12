@@ -35,7 +35,8 @@ import {Circle} from './components/circle'
 
 type Poi = { key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 
-let locations: Poi[] = (await import('./database.json')).default;
+let db = (await import('./database.json')).default;
+let locations: Poi[] = db.locations;
 
 const App = () => (
   <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
