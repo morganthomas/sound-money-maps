@@ -39,6 +39,10 @@ type Poi = { key: string, name: string, address: string, description: string, cu
 let db = (await import('./database.json')).default;
 let locations: Poi[] = db.locations;
 let currencies: Currency[] = db.currencies;
+let currenciesMap = {};
+currencies.forEach(currency => {
+  currenciesMap[currency.key] = currency;
+});
 
 const App = () => {
   let currencySelections = {};
@@ -52,7 +56,10 @@ const App = () => {
       defaultCenter={{ lat: 44.0, lng: -71.9 }}
       mapId='da37f3254c6a6d1c'
       >
-    <PoiMarkers pois={locations} />
+      <PoiMarkers currencySelections={
+          Object.fromEntries(Object.entries(currencySelections).map(sel => [sel[0], sel[1][0]]))
+        }
+        pois={locations} />
     </Map>
     <div style={{
         "position": "absolute",
@@ -78,7 +85,7 @@ const App = () => {
   </APIProvider>;
 };
 
-const PoiMarkers = (props: { pois: Poi[] }) => {
+const PoiMarkers = (props: { currencySelections, pois: Poi[] }) => {
   const [visibleInfoKey, setVisibleInfoKey] = useState(null);
   const map = useMap();
   const [markers, setMarkers] = useState<{[key: string]: Marker}>({});
@@ -137,6 +144,8 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
         />
       {props.pois.map( (poi: Poi) => {
         const [markerRef, marker] = useAdvancedMarkerRef();
+        const isVisible = poi.currencies.some(currencyKey => props.currencySelections[currencyKey]);
+        marker && marker.setMap(isVisible ? map : null);
         return (
           <div key={poi.key}>
             <AdvancedMarker
@@ -151,7 +160,7 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
                 <p style={{ "float": "right", "margin": 0 }} onClick={hideInfoWindow}>x</p>
                 <p><strong>{poi.name}</strong></p>
                 <p>{poi.description}</p>
-                <p>Accepts: {poi.currencies}</p>
+                <p>Accepts: {poi.currencies.map(currencyKey => currenciesMap[currencyKey].name).join(", ")}</p>
                 <p>{poi.address1}</p>
                 <p>{poi.address2}</p>
                 <p>{poi.phone}</p>

@@ -28,7 +28,7 @@
       "address1": "1800 Elm St",
       "address2": "Manchester, NH 03104",
       "description": "Buy, sell, pawn, and exchange precious metals",
-      "currencies": "cash, gold, silver, Goldbacks",
+      "currencies": ["gold", "silver", "gbs"],
       "phone": "(603) 836-8814",
       "location": { "lat": 43.0047529, "lng": -71.4689036 }
     },
@@ -38,7 +38,7 @@
       "address1": "33 N Stark Hwy",
       "address2": "Weare, NH 03281",
       "description": "Buy, sell, and trade precious metals",
-      "currencies": "cash, gold, silver, Goldbacks",
+      "currencies": ["gold", "silver", "bitz", "gbs"],
       "phone": "(603) 529-3999",
       "location": { "lat": 43.096796, "lng": -71.7343779 }
     },
@@ -48,7 +48,7 @@
       "address1": "136 Mammoth Rd Apt 22",
       "address2": "Hooksett, NH 03106",
       "description": "Remodeling service specializing in deep energy retrofits",
-      "currencies": "cash, gold, silver, Goldbacks, crypto",
+      "currencies": ["btc", "gold", "silver", "bitz", "gbs"],
       "phone": "(603) 688-6096",
       "location": { "lat": 43.0355834, "lng": -71.4364752 }
     }
