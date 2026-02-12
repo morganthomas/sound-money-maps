@@ -1,4 +1,26 @@
 {
+  "currencies": [
+    {
+      "key": "btc",
+      "name": "Bitcoin"
+    },
+    {
+      "key": "gold",
+      "name": "Gold"
+    },
+    {
+      "key": "silver",
+      "name": "Silver"
+    },
+    {
+      "key": "bitz",
+      "name": "Silver Bitz"
+    },
+    {
+      "key": "gbs",
+      "name": "Goldbacks"
+    }
+  ],
   "locations": [
     {
       "key": "alpineGold",

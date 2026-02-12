@@ -33,10 +33,12 @@ import type {Marker} from '@googlemaps/markerclusterer';
 
 import {Circle} from './components/circle'
 
+type Currency = { key: string, name: string }
 type Poi = { key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 
 let db = (await import('./database.json')).default;
 let locations: Poi[] = db.locations;
+let currencies: Currency[] = db.currencies;
 
 const App = () => (
   <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
@@ -47,6 +49,24 @@ const App = () => (
       >
     <PoiMarkers pois={locations} />
     </Map>
+    <div style={{
+        "position": "absolute",
+        "top": "100px",
+        "left": "50px",
+        "background": "white",
+        "padding-right": "20px",
+        "padding-left": "20px"
+      }}>
+      <h3>Select Currencies</h3>
+      <ul style={{ "padding-left": "0px" }}>
+        {currencies.map(currency =>
+          <li key={currency.key} style={{ "list-style": "none" }}>
+            <input type="checkbox" />
+            {currency.name}
+          </li>
+        )}
+      </ul>
+    </div>
   </APIProvider>
 );
 
