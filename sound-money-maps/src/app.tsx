@@ -38,7 +38,7 @@ type Poi = { key: string, name: string, address: string, description: string, cu
 let locations: Poi[] = (await import('./database.json')).default;
 
 const App = () => (
-  <APIProvider apiKey={'AIzaSyCZiZTseixjlpxMb3BJgcKzDwywqe3cXxQ'} onLoad={() => console.log('Maps API has loaded.')}>
+  <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
       defaultZoom={8.5}
       defaultCenter={{ lat: 44.0, lng: -71.9 }}
