@@ -23,34 +23,92 @@
   ],
   "locations": [
     {
-      "key": "alpineGold",
+      "key": "alpine",
       "name": "Alpine Gold Exchange",
       "address1": "1800 Elm St",
       "address2": "Manchester, NH 03104",
       "description": "Buy, sell, pawn, and exchange precious metals",
+      "url": "https://alpinegold.com/pages/manchester-new-hampshire",
       "currencies": ["gold", "silver", "gbs"],
       "phone": "(603) 836-8814",
       "location": { "lat": 43.0047529, "lng": -71.4689036 }
     },
     {
-      "key": "localSilverMint",
+      "key": "lsm",
       "name": "Local Silver Mint",
       "address1": "33 N Stark Hwy",
       "address2": "Weare, NH 03281",
       "description": "Buy, sell, and trade precious metals",
+      "url": "https://localsilvermint.com/",
       "currencies": ["gold", "silver", "bitz", "gbs"],
       "phone": "(603) 529-3999",
       "location": { "lat": 43.096796, "lng": -71.7343779 }
     },
     {
-      "key": "atlasRemodeling",
-      "name": "Atlas Remodeling NH",
+      "key": "atlas",
+      "name": "Atlas High Performance Homes L.L.C.",
       "address1": "136 Mammoth Rd Apt 22",
       "address2": "Hooksett, NH 03106",
       "description": "Remodeling service specializing in deep energy retrofits",
+      "url": "https://www.atlashighperformancehomesnh.com/",
       "currencies": ["btc", "gold", "silver", "bitz", "gbs"],
       "phone": "(603) 688-6096",
       "location": { "lat": 43.0355834, "lng": -71.4364752 }
+    },
+    {
+      "key": "robie",
+      "name": "The Robie Store",
+      "address1": "9 Riverside St",
+      "address2": "Hooksett, NH 03106",
+      "description": "Kitchen, market and butcher shop",
+      "url": "https://therobiestore.com/",
+      "currencies": ["btc", "gold", "silver", "bitz", "gbs"],
+      "phone": "(603) 485-7761",
+      "location": { "lat": 43.0966094, "lng": -71.4641948 }
+    },
+    {
+      "key": "whippin",
+      "name": "Whippin' Good",
+      "address1": "21 Mountain Rd",
+      "address2": "Raymond, NH 03077",
+      "description": "Ice cream shop",
+      "url": "https://www.whippingood603.com/",
+      "currencies": ["btc"],
+      "phone": "(603) 244-5035",
+      "location": { "lat": 43.0588877, "lng": -71.1591092 }
+    },
+    {
+      "key": "mmm",
+      "name": "Mighty Moose Mart",
+      "address1": "152 Winchester St",
+      "address2": "Keene, NH 03431",
+      "url": "https://mmm.baby/",
+      "currencies": ["btc", "gbs"],
+      "description": "Convenience store",
+      "phone": "(603) 499-4949",
+      "location": { "lat": 42.9275424, "lng": -72.2858794 }
+    },
+    {
+      "key": "zoe",
+      "name": "Little Zoe's Pizza",
+      "address1": "149 Emerald St. #5",
+      "address2": "Keene, NH 03431",
+      "url": "https://littlezoes.com/",
+      "currencies": ["btc", "gbs"],
+      "description": "Pizza restaurant",
+      "phone": "(603) 358-6001",
+      "location": { "lat": 42.9312753, "lng": -72.2874152 }
+    },
+    {
+      "key": "himalayas",
+      "name": "Himalayas General Store",
+      "address1": "359 Elm St",
+      "address2": "Manchester, NH 03101",
+      "url": "https://himalayas-general-store.com-place.com/",
+      "currencies": ["gbs"],
+      "description": "South Asian grocery store",
+      "phone": "(603) 222-2366",
+      "location": { "lat": 42.9832159, "lng": -71.465438 }
     }
   ]
 }

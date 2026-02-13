@@ -164,6 +164,8 @@ const PoiMarkers = (props: { currencySelections, pois: Poi[] }) => {
                 <p>{poi.address1}</p>
                 <p>{poi.address2}</p>
                 <p>{poi.phone}</p>
+                <p><small>Please report any data quality issues to<br/>
+                   <tt>@platonic_morgan</tt> on Telegram.</small></p>
             </InfoWindow>}
           </div>
         );
