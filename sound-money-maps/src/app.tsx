@@ -34,7 +34,7 @@ import type {Marker} from '@googlemaps/markerclusterer';
 import {Circle} from './components/circle'
 
 type Currency = { key: string, name: string }
-type Poi = { key: string, name: string, address: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
+type Poi = { key: string, name: string, address: string, url: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 
 let db = (await import('./database.json')).default;
 let locations: Poi[] = db.locations;
@@ -158,7 +158,7 @@ const PoiMarkers = (props: { currencySelections, pois: Poi[] }) => {
             </AdvancedMarker>
             {poi.key == visibleInfoKey && <InfoWindow anchor={marker} headerDisabled={true}>
                 <p style={{ "float": "right", "margin": 0 }} onClick={hideInfoWindow}>x</p>
-                <p><strong>{poi.name}</strong></p>
+                <p><strong><a href={poi.url}>{poi.name}</a></strong></p>
                 <p>{poi.description}</p>
                 <p>Accepts: {poi.currencies.map(currencyKey => currenciesMap[currencyKey].name).join(", ")}</p>
                 <p>{poi.address1}</p>
