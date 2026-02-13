@@ -52,7 +52,7 @@ const App = () => {
 
   return <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
-      defaultZoom={8.5}
+      defaultZoom={8}
       defaultCenter={{ lat: 44.0, lng: -71.9 }}
       mapId='da37f3254c6a6d1c'
       >
@@ -63,8 +63,8 @@ const App = () => {
     </Map>
     <div style={{
         "position": "absolute",
-        "top": "100px",
-        "left": "50px",
+        "top": "25vh",
+        "left": "2vw",
         "background": "white",
         "paddingRight": "20px",
         "paddingLeft": "20px"
