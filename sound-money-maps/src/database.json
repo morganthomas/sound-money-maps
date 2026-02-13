@@ -109,6 +109,28 @@
       "description": "South Asian grocery store",
       "phone": "(603) 222-2366",
       "location": { "lat": 42.9832159, "lng": -71.465438 }
+    },
+    {
+      "key": "cryptic",
+      "name": "Cryptic Beer Lounge",
+      "address1": "40 Manchester Rd",
+      "address2": "Derry, NH 03038",
+      "url": "https://kelsenbrewing.com/the-cryptic-beer-lounge/",
+      "currencies": ["btc"],
+      "description": "Craft brewery and lounge with food",
+      "phone": "(603) 965-3708",
+      "location": { "lat": 42.8988903, "lng": -71.3402366 }
+    },
+    {
+      "key": "manomet",
+      "name": "Manomet Laundry",
+      "address1": "739 State Rd",
+      "address2": "Plymouth, MA 02360",
+      "url": "https://www.manometlaundry.com/",
+      "currencies": ["gbs"],
+      "description": "Laundry service",
+      "phone": "(508) 224-4502",
+      "location": { "lat": 41.9128467, "lng": -70.5495233 }
     }
   ]
 }
