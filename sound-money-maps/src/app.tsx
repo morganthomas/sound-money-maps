@@ -53,7 +53,8 @@ const App = () => {
   return <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
       defaultZoom={8}
-      defaultCenter={{ lat: 44.0, lng: -71.9 }}
+      defaultCenter={{ lat: 43.0, lng: -71.9 }}
+      mapTypeControl={false}
       mapId='da37f3254c6a6d1c'
       >
       <PoiMarkers currencySelections={
@@ -66,10 +67,11 @@ const App = () => {
         "bottom": "10vh",
         "left": "2vw",
         "background": "white",
-        "paddingRight": "20px",
-        "paddingLeft": "20px"
+        "paddingRight": "2vw",
+        "paddingLeft": "2vw",
+        "fontSize": "2vh"
       }}>
-      <h3>Select Currencies</h3>
+      <p>Select Currencies</p>
       <ul style={{ "paddingLeft": "0px" }}>
         {currencies.map(currency =>
           <li key={currency.key} style={{ "listStyle": "none" }}>
@@ -164,8 +166,6 @@ const PoiMarkers = (props: { currencySelections, pois: Poi[] }) => {
                 <p>{poi.address1}</p>
                 <p>{poi.address2}</p>
                 <p>{poi.phone}</p>
-                <p><small>Please report any data quality issues to<br/>
-                   <tt>@platonic_morgan</tt> on Telegram.</small></p>
             </InfoWindow>}
           </div>
         );
