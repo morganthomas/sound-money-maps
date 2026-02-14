@@ -16,7 +16,7 @@
 import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
-  const {GOOGLE_MAPS_API_KEY = ''} = loadEnv(mode, process.cwd(), '');
+  const {GOOGLE_MAPS_API_KEY = '', APP_PORT} = loadEnv(mode, process.cwd(), '');
 
   return {
     define: {
@@ -28,6 +28,9 @@ export default defineConfig(({mode}) => {
         '@vis.gl/react-google-maps/examples.js':
           'https://visgl.github.io/react-google-maps/scripts/examples.js'
       }
+    },
+    server: {
+      port: APP_PORT ? Number(APP_PORT) : 5173
     }
   };
 });
