@@ -63,7 +63,7 @@ const App = () => {
     </Map>
     <div style={{
         "position": "absolute",
-        "top": "25vh",
+        "bottom": "10vh",
         "left": "2vw",
         "background": "white",
         "paddingRight": "20px",
