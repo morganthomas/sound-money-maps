@@ -131,6 +131,94 @@
       "description": "Laundry service",
       "phone": "(508) 224-4502",
       "location": { "lat": 41.9128467, "lng": -70.5495233 }
+    },
+    {
+      "key": "alpha",
+      "name": "Alpha's Barbershop",
+      "address1": "4 Main St",
+      "address2": "Goffstown, NH 03045",
+      "url": "https://alphasbarbershop.wixsite.com/alphasbarbershop",
+      "currencies": ["gbs", "bitz"],
+      "description": "Barber shop",
+      "phone": "(603) 785-6488",
+      "location": { "lat": 43.0202644, "lng": -71.6028734 }
+    },
+    {
+      "key": "carter",
+      "name": "Carter's Ice Cream",
+      "address1": "534 Salem St",
+      "address2": "Haverhill, MA 01835",
+      "url": "",
+      "currencies": ["bitz"],
+      "description": "Ice cream shop",
+      "phone": "(978) 469-8343",
+      "location": { "lat": 42.7525798, "lng": -71.0582074 }
+    },
+    {
+      "key": "fieldodreams",
+      "name": "Field O' Dreams Farm and Boston Post Lawnmower Service",
+      "address1": "481 Boston Post Rd",
+      "address2": "Amherst, NH 03031",
+      "url": "https://fieldodreamsfarm.com/",
+      "currencies": ["bitz"],
+      "description": "Family farm and lawn mowing service",
+      "phone": "(603) 620-0166",
+      "location": { "lat": 42.8129, "lng": -71.5687803 }
+    },
+    {
+      "key": "framers",
+      "name": "Framer's Market Framing and Fine Art",
+      "address1": "1301 Elm St",
+      "address2": "Manchester, NH 03101",
+      "url": "https://framersmarketnh.com/",
+      "currencies": ["bitz"],
+      "description": "Picture frame shop and fine art gallery",
+      "phone": "(603) 668-6989",
+      "location": { "lat": 42.9969097, "lng": -71.6592026 }
+    },
+    {
+      "key": "vital",
+      "name": "Vital Living Wellness Center",
+      "address1": "316 Weare Rd Unit 4",
+      "address2": "Henniker, NH 03242",
+      "url": "https://vitallivingnh.com/",
+      "currencies": ["bitz"],
+      "description": "Testosterone replacement and hormone therapy",
+      "phone": "(603) 255-5048",
+      "location": { "lat": 43.1725434, "lng": -71.8146069 }
+    },
+    {
+      "key": "jlp",
+      "name": "JLP Sealcoat",
+      "address1": "40 Union Lake Rd",
+      "address2": "Barrington, NH 03825",
+      "url": "https://jlpsealcoat.com/",
+      "currencies": ["bitz"],
+      "description": "Driveway sealcoating",
+      "phone": "(603) 964-7025",
+      "location": { "lat": 43.2045296, "lng": -71.0548892 }
+    },
+    {
+      "key": "tacob",
+      "name": "Taco Beyondo",
+      "address1": "53 Henniker St",
+      "address2": "Hillsborough, NH 03244",
+      "url": "https://taco-beyondo.weeblyte.com/",
+      "currencies": ["bitz"],
+      "description": "Taco restaurant",
+      "phone": "(603) 812-8083",
+      "location": { "lat": 43.1164693, "lng": -71.8939392 } 
+    },
+    {
+      "key": "gsc",
+      "name": "Granite State Chimney",
+      "address1": "165 Morse Rd",
+      "address2": "Manchester, NH 03104",
+      "url": "https://www.gschimney.com/",
+      "currencies": ["bitz"],
+      "description": "Chimney repair and maintenance",
+      "phone": "(603) 391-4578",
+      "location": { "lat": 42.9975521, "lng": -71.4117723 }
     }
   ]
 }
