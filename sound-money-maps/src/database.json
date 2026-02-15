@@ -171,7 +171,7 @@
       "address1": "1301 Elm St",
       "address2": "Manchester, NH 03101",
       "url": "https://framersmarketnh.com/",
-      "currencies": ["bitz"],
+      "currencies": ["bitz", "gbs"],
       "description": "Picture frame shop and fine art gallery",
       "phone": "(603) 668-6989",
       "location": { "lat": 42.9969097, "lng": -71.6592026 }
