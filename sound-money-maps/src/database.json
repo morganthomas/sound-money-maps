@@ -219,6 +219,16 @@
       "description": "Chimney repair and maintenance",
       "phone": "(603) 391-4578",
       "location": { "lat": 42.9975521, "lng": -71.4117723 }
+    },
+    {
+      "key": "outerlands",
+      "name": "Outerlands Coffe Roasters",
+      "address1": "PO Box 14",
+      "address2": "Salisbury, NH 03268"
+      "currencies": ["silver", "gbs"],
+      "description": "Coffee roaster",
+      "phone": "hello@outerlands.coffee",
+      "location": { "lat": 43.3778293, "lng": -71.7179031 }
     }
   ]
 }
