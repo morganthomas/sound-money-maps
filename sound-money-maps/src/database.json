@@ -222,13 +222,25 @@
     },
     {
       "key": "outerlands",
-      "name": "Outerlands Coffe Roasters",
+      "name": "Outerlands Coffee Roasters",
       "address1": "PO Box 14",
-      "address2": "Salisbury, NH 03268"
+      "address2": "Salisbury, NH 03268",
+      "url": "https://coffeeroast.com/roaster/outerlands-coffee-roasters",
       "currencies": ["silver", "gbs"],
       "description": "Coffee roaster",
       "phone": "hello@outerlands.coffee",
       "location": { "lat": 43.3778293, "lng": -71.7179031 }
+    },
+    {
+      "key": "gilsumcoin",
+      "name": "Gilsum Coin Mine",
+      "address1": "3 Brakehill Rd",
+      "address2": "Gilsum, NH 03448",
+      "url": "https://gilsumcoinmine.com/",
+      "currencies": ["gold", "silver", "gbs", "bitz"],
+      "description": "Coin shop",
+      "phone": "(603) 762-8744",
+      "location": { "lat": 43.0475269, "lng": -72.2623625 }
     }
   ]
 }
