@@ -204,7 +204,7 @@
       "address1": "53 Henniker St",
       "address2": "Hillsborough, NH 03244",
       "url": "https://taco-beyondo.weeblyte.com/",
-      "currencies": ["bitz"],
+      "currencies": ["bitz", "gbs", "btc"],
       "description": "Taco restaurant",
       "phone": "(603) 812-8083",
       "location": { "lat": 43.1164693, "lng": -71.8939392 } 
