@@ -21,7 +21,7 @@ export default defineConfig(({mode}) => {
   return {
     define: {
       'process.env.GOOGLE_MAPS_API_KEY': JSON.stringify(GOOGLE_MAPS_API_KEY),
-      'process.env.VITE_GOOGLE_MAPS_API_KEY': GOOGLE_MAPS_API_KEY
+      'process.env.VITE_GOOGLE_MAPS_API_KEY': JSON.stringify(GOOGLE_MAPS_API_KEY)
     },
     resolve: {
       alias: {

@@ -36,13 +36,14 @@ import {Circle} from './components/circle'
 type Currency = { key: string, name: string }
 type Poi = { key: string, name: string, address: string, url: string, description: string, currencies: string, showInfo: boolean, location: google.maps.LatLngLiteral }
 
-let db = (await import('./database.json')).default;
+import db from './database.json';
 let locations: Poi[] = db.locations;
 let currencies: Currency[] = db.currencies;
 let currenciesMap = {};
 currencies.forEach(currency => {
   currenciesMap[currency.key] = currency;
 });
+let apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 const App = () => {
   let currencySelections = {};
@@ -50,7 +51,7 @@ const App = () => {
       currencySelections[currency.key] = useState(true);
   });
 
-  return <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Maps API has loaded.')}>
+  return <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
     <Map
       defaultZoom={8}
       defaultCenter={{ lat: 43.0, lng: -71.9 }}
