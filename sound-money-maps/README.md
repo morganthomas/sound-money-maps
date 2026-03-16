@@ -5,4 +5,5 @@
                                                                                                                            
   You'll need to:
   1. Run npm run build and copy dist/ to /var/www/sound-money-maps/dist (or adjust root to your preferred path).
-
+	2. ln -s /root/sound-money-maps/sound-money-maps/nginx.conf /etc/nginx/nginx.conf)
+  3. systemctl restart nginx.service
