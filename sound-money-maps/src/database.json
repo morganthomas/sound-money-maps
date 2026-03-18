@@ -241,6 +241,17 @@
       "description": "Coin shop",
       "phone": "(603) 762-8744",
       "location": { "lat": 43.0475269, "lng": -72.2623625 }
-    }
+    },
+		{
+			"key": "danis",
+			"name": "Danis Barber Shop",
+			"address1": "354 Suncook Valley Rd",
+			"address2": "Chichester, NH 03258",
+			"url": "https://www.facebook.com/p/Danis-Barber-Shop-100041790892146/",
+			"currencies": ["gold", "silver", "gbs", "bitz"],
+			"description": "Barber shop",
+			"phone": "(603) 435-6487",
+			"location": { "lat": 43.2944125, "lng": -71.3542089 }
+		}
   ]
 }
