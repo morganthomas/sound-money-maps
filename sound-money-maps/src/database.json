@@ -252,6 +252,17 @@
 			"description": "Barber shop",
 			"phone": "(603) 435-6487",
 			"location": { "lat": 43.2944125, "lng": -71.3542089 }
+		},
+		{
+			"key": "protectworth",
+			"name": "Protectworth Brewing",
+			"address1": "633 John Stark Hwy",
+			"address2": "Newport, NH 03773",
+			"url": "https://www.protectworthbrewing.com/",
+			"currencies": ["silver", "bitz"],
+			"description": "Taproom and brew house",
+			"phone": "(603) 678-2038",
+			"location": { "lat": 43.3641742, "lng": -72.2285229 }
 		}
   ]
 }
